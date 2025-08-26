@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-type BlogCard = {
+export type BlogCard = {
   id: string;
   category: number; 
   date: string;
