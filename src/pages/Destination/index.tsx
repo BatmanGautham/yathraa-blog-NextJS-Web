@@ -1,4 +1,5 @@
 // pages/destination/index.tsx
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import authorImage from "../../../public/author1.jpg";
@@ -20,13 +21,16 @@ const destinations = [
 ];
 
 export default function DestinationList() {
+
+  const [searchTerm, setSearchTerm] = React.useState("");
+
   return (
     <>
       <div className="min-h-screen bg-gradient-to-b from-indigo-900 via-white to-indigo-50">
         {/* Navbar */}
         <Nav
-          searchTerm=""
-          setSearchTerm={() => {}}
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
           suggestions={destinations.map((d) => d.title)}
           setAuthType={() => {}}
         />
@@ -40,7 +44,7 @@ export default function DestinationList() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             {destinations.map((dest) => (
-              <Link key={dest.slug} href={`/Destination/${dest.slug}`}>
+              <Link key={dest.slug} href={`/destination/${dest.slug}`}>
                 <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition cursor-pointer">
                   <Image
                     src={dest.image}

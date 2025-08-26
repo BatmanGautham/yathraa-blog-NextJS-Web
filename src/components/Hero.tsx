@@ -104,7 +104,7 @@ const Hero: React.FC<HeroProps> = ({ searchTerm, setSearchTerm, suggestions = []
           <div className="max-xl:hidden grid grid-cols-[auto_1fr_auto] items-center gap-3">
             {/* Left: Logo + Links */}
             <div className="flex items-center gap-4 min-w-0">
-              <a
+              <Link
                 href="/"
                 className="inline-flex items-center text-white no-underline font-bold text-2xl"
               >
@@ -129,16 +129,17 @@ const Hero: React.FC<HeroProps> = ({ searchTerm, setSearchTerm, suggestions = []
                   </svg>
                 </span>
                 <span className="tracking-wide">Yathra</span>
-              </a>
+              </Link>
+
               <ul className="list-none pl-4 m-0 flex gap-8 flex-nowrap mr-4">
                 {["Hotel", "Flight", "Train", "Travel", "Car Rental"].map((item) => (
                   <li key={item}>
-                    <a
+                    <Link
                       href="/"
                       className="text-white font-medium text-lg border-b-2 border-transparent hover:border-indigo-500 transition duration-200"
                     >
                       {item}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -210,19 +211,21 @@ const Hero: React.FC<HeroProps> = ({ searchTerm, setSearchTerm, suggestions = []
                 <Globe className="w-8 h-8" />
               </button>
               <span className="font-semibold">EN</span>
-              <a
-                className="text-white font-semibold ml-6 text-xl border-b-2 border-transparent hover:border-indigo-500 cursor-pointer transition duration-200"
+              <button
+                className="text-white font-semibold ml-6 text-xl border-b-2 border-transparent hover:border-indigo-500 transition duration-200"
                 onClick={() => setAuthType("login")}
               >
                 Log In
-              </a>
-              <a
+              </button>
+              <button
                 className="no-underline text-gray-900 bg-white rounded-lg py-3.5 px-3.5 font-bold text-xl ml-6 hover:brightness-95 cursor-pointer hover:bg-indigo-400 hover:text-white transition duration-300"
                 onClick={() => setAuthType("signup")}
               >
                 Sign Up
-              </a>
+              </button>
             </div>
+
+            
           </div>
         </nav>
 
@@ -304,10 +307,10 @@ const Hero: React.FC<HeroProps> = ({ searchTerm, setSearchTerm, suggestions = []
         sidebarOpen ? "right-0" : "right-[-380px] max-md:right-[-100vw]"}`}>
 
         <div className="flex justify-between items-center py-6 px-7 border-b border-white/15">
-          <a
+          <Link
             href="/"
-            onClick={() => setSidebarOpen(false)}
             className="inline-flex items-center text-white font-bold text-2xl"
+            onClick={() => setSidebarOpen(false)}
           >
             <span className="inline-flex items-center justify-center w-12 h-12">
               <svg
@@ -330,7 +333,8 @@ const Hero: React.FC<HeroProps> = ({ searchTerm, setSearchTerm, suggestions = []
               </svg>
             </span>
             <span className="tracking-wide">Yathra</span>
-          </a>
+          </Link>
+
           <button
             className="text-white p-2.5 rounded-full hover:bg-white/15 hover:rotate-90"
             onClick={() => setSidebarOpen(false)}
@@ -392,13 +396,13 @@ const Hero: React.FC<HeroProps> = ({ searchTerm, setSearchTerm, suggestions = []
         <ul className="flex-1 flex flex-col p-4 gap-2">
           {["Hotel", "Flight", "Train", "Travel", "Car Rental"].map((link) => (
             <li key={link}>
-              <a
+              <Link
                 href="/"
-                onClick={() => setSidebarOpen(false)}
                 className="flex items-center text-white text-xl font-medium py-4 px-7 border-l-4 border-transparent hover:bg-white/[0.35] hover:border-l-white hover:translate-x-2 transition-all"
+                onClick={() => setSidebarOpen(false)}
               >
                 {link}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

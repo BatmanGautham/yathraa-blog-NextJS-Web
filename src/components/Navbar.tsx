@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { Menu, X, Globe, Search } from "lucide-react";
+import Link from "next/link";
 
 type NavProps = {
   searchTerm: string;
@@ -59,41 +60,39 @@ const Nav: React.FC<NavProps> = ({
         <div className="max-xl:hidden grid grid-cols-[auto_1fr_auto] items-center gap-6">
           {/* Left: Logo + Links */}
           <div className="flex items-center gap-6">
-            <a
-              href="/"
-              className="text-white text-2xl font-bold flex items-center gap-2"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="lucide lucide-handshake"
-              >
-                <path d="m11 17 2 2a1 1 0 1 0 3-3" />
-                <path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4" />
-                <path d="m21 3 1 11h-2" />
-                <path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3" />
-                <path d="M3 4h8" />
-              </svg>
-              Yathra
-            </a>
+              <Link href="/" className="text-white text-2xl font-bold flex items-center gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="lucide lucide-handshake"
+                >
+                  <path d="m11 17 2 2a1 1 0 1 0 3-3" />
+                  <path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4" />
+                  <path d="m21 3 1 11h-2" />
+                  <path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3" />
+                  <path d="M3 4h8" />
+                </svg>
+                Yathra
+              </Link>
+
 
             <ul className="flex gap-6">
               {["Home", "Hotel", "Flight", "Train", "Travel", "Car Rental"].map(
                 (item) => (
                   <li key={item}>
-                    <a
+                    <Link
                       href="/"
                       className="text-white font-medium text-lg border-b-2 border-transparent hover:border-indigo-500"
                     >
                       {item}
-                    </a>
+                    </Link>
                   </li>
                 )
               )}
@@ -191,20 +190,20 @@ const Nav: React.FC<NavProps> = ({
 
       {/* Sidebar */}
       <nav
-        className={`fixed top-0 w-[380px] h-screen bg-gradient-to-br from-indigo-400/[0.85] to-purple-500/[0.75] z-[999] flex flex-col shadow-xl transition-all duration-400 ease-in-out max-md:w-screen ${
+        className={`fixed top-0 w-[380px] h-screen bg-gradient-to-br from-indigo-400/[0.85] to-purple-500/[0.75] z-[999] flex flex-col shadow-xl transition-all duration-300 ease-in-out max-md:w-screen ${
           sidebarOpen ? "right-0" : "right-[-380px] max-md:right-[-100vw]"
         }`}
       >
         <div className="flex justify-between items-center py-6 px-7 border-b border-white/15">
-          <a
+          <Link
             href="/"
             onClick={() => setSidebarOpen(false)}
             className="text-white font-bold text-2xl"
           >
             Yathra
-          </a>
+          </Link>
           <button
-            className="text-white p-2.5 rounded-full hover:bg-white/15 hover:rotate-90"
+            className="text-white p-2.5 rounded-full transform hover:bg-white/15 hover:rotate-90"
             onClick={() => setSidebarOpen(false)}
           >
             <X size={24} />
@@ -216,7 +215,7 @@ const Nav: React.FC<NavProps> = ({
           className="relative py-6 px-7 border-b border-white/15"
           ref={sidebarSearchRef}
         >
-          <div className="flex items-center bg-white/15 border border-white/20 rounded-[25px] py-3.5 px-4.5 backdrop-blur-md">
+          <div className="flex items-center bg-white/15 border border-white/20 rounded-[25px] py-3 px-4 backdrop-blur-md">
             <input
               type="search"
               placeholder="Search destination..."
@@ -263,13 +262,13 @@ const Nav: React.FC<NavProps> = ({
           {["Home", "Hotel", "Flight", "Train", "Travel", "Car Rental"].map(
             (link) => (
               <li key={link}>
-                <a
+                <Link
                   href="/"
                   onClick={() => setSidebarOpen(false)}
                   className="flex items-center text-white text-xl font-medium py-4 px-7 border-l-4 border-transparent hover:bg-white/[0.35] hover:border-l-white hover:translate-x-2 transition-all"
                 >
                   {link}
-                </a>
+                </Link>
               </li>
             )
           )}

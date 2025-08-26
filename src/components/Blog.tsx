@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 type BlogCard = {
   id: string;
@@ -152,7 +153,14 @@ const Blog: React.FC<BlogProps> = ({ posts, searchTerm }) => {
           <Link key={post.id} href={`/posts/${post.id}`} className="cursor-pointer">
             <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
               <div className="relative transition-transform duration-500 ease-in-out hover:scale-105">
-                <img src={post.image} alt={post.title} className="w-full h-52 object-cover " />
+                {/* <img src={post.image} alt={post.title} className="w-full h-52 object-cover " /> */}
+                <Image
+                  src={post.image}         // external URL
+                  alt={post.title}
+                  width={600}              // specify width
+                  height={208}             // specify height
+                  className="w-full h-52 object-cover"
+                />
                 <div className="absolute top-3 left-3">
                   <div className="inline-block bg-gradient-to-br from-zinc-100/40 to-zinc-300/20 border-0 py-2 px-3 rounded-full text-sm sm:text-base shadow-[0_0.4rem_0.8rem_0.2rem_rgba(0,0,0,0.2)] backdrop-blur-md cursor-pointer transition-all duration-300 ease-in-out hover:scale-105 hover:bg-black hover:text-white">
                     {post.category}
