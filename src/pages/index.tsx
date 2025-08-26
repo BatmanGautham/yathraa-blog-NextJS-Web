@@ -5,7 +5,17 @@ import Gallery from "@/components/Gallery";
 import Footer from "@/components/Footer";
 import Head from "next/head";
 
-export default function Index({ posts }: { posts: any[] }) {
+interface Post {
+  id: number;
+  date: string;
+  readTime: string;
+  title: string;
+  description: string;
+  author: string;
+  image: string;
+}
+
+export default function Index({ posts }: { posts: Post[] }) {
   const [searchTerm, setSearchTerm] = useState("");
 
   const blogCards: BlogCard[] = posts.map((p) => ({

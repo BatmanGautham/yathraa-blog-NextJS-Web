@@ -3,6 +3,7 @@ import { GetServerSideProps } from "next";
 import React from "react";
 import Nav from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Image from "next/image";
 
 type BlogCard = {
   id: string;
@@ -26,7 +27,8 @@ type Props = {
 const PostDetail: React.FC<Props> = ({ post, allPosts = [] }) => {
 
   const [searchTerm, setSearchTerm] = React.useState("");
-  const [authType, setAuthType] = React.useState<"login" | "signup" | null>(null);
+
+  const setAuthType = React.useState<"login" | "signup" | null>(null)[1];
 
   const suggestions = allPosts.map((p) => p.title); // use titles for dropdown
 
@@ -43,9 +45,11 @@ const PostDetail: React.FC<Props> = ({ post, allPosts = [] }) => {
       />
 
       <article className="max-w-3xl  mx-auto px-5 py-16">
-        <img
+        <Image
           src={post.image}
           alt={post.title}
+          width={500}
+          height={300}
           className="rounded-xl mb-6 w-full object-contain"
         />
         <h1 className="text-4xl font-bold mb-3">{post.title}</h1>

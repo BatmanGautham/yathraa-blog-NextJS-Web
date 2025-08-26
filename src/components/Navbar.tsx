@@ -158,7 +158,7 @@ const Nav: React.FC<NavProps> = ({
             </button>
             <button
               className="text-white font-semibold"
-              onClick={() => setAuthType("login")}
+              onClick={() => setAuthType && setAuthType("login")}
             >
               Log In
             </button>
