@@ -79,7 +79,7 @@ const Nav: React.FC<NavProps> = ({
                   <path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3" />
                   <path d="M3 4h8" />
                 </svg>
-                Yathra
+                Yathraa
               </Link>
 
 
@@ -200,7 +200,7 @@ const Nav: React.FC<NavProps> = ({
             onClick={() => setSidebarOpen(false)}
             className="text-white font-bold text-2xl"
           >
-            Yathra
+            Yathraa
           </Link>
           <button
             className="text-white p-2.5 rounded-full transform hover:bg-white/15 hover:rotate-90"

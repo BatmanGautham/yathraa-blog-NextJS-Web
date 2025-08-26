@@ -128,7 +128,7 @@ const Hero: React.FC<HeroProps> = ({ searchTerm, setSearchTerm, suggestions = []
                     <path d="M3 4h8" />
                   </svg>
                 </span>
-                <span className="tracking-wide">Yathra</span>
+                <span className="tracking-wide">Yathraa</span>
               </Link>
 
               <ul className="list-none pl-4 m-0 flex gap-8 flex-nowrap mr-4">
@@ -332,7 +332,7 @@ const Hero: React.FC<HeroProps> = ({ searchTerm, setSearchTerm, suggestions = []
                 <path d="M3 4h8" />
               </svg>
             </span>
-            <span className="tracking-wide">Yathra</span>
+            <span className="tracking-wide">Yathraa</span>
           </Link>
 
           <button
