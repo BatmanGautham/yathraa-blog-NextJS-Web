@@ -21,7 +21,6 @@ As you trek through Kerala's vast landscapes, the journey itself becomes just as
 
 One of the best things about hiking in Kerala is the diversity of trails available for all kinds of adventurers. From easy, family-friendly hikes that take you through picturesque tea plantations to more challenging, high-altitude treks that test your endurance, Kerala has something for every level of hiker. The state’s rich biodiversity is another reason to visit—it's not uncommon to spot exotic birds, rare butterflies, and even wild animals like the Nilgiri Tahr. Every trail you take feels like an exploration into a different world, and the chance to reconnect with nature in such an untouched environment is an experience like no other.`
   },
-  // add more posts as needed
 ];
 
 export default function DestinationDetail() {
@@ -60,10 +59,10 @@ export default function DestinationDetail() {
           className="rounded-xl mb-6 w-full object-contain"
         />
         <h1 className="text-4xl font-bold mb-3">{post.title}</h1>
-        <p className="text-sm text-gray-500 mb-6">
+        <p className="text-sm text-black mb-6">
           {post.date} • {post.readTime} • {post.author}
         </p>
-        <p className="text-base text-gray-600 mb-6 italic">{post.description}</p>
+        <p className="text-base text-gray mb-6 italic">{post.description}</p>
         <p className="text-lg leading-relaxed text-gray-700 whitespace-pre-line">
           {post.content}
         </p>

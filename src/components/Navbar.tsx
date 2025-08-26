@@ -190,20 +190,40 @@ const Nav: React.FC<NavProps> = ({
 
       {/* Sidebar */}
       <nav
-        className={`fixed top-0 w-[380px] h-screen bg-gradient-to-br from-indigo-400/[0.85] to-purple-500/[0.75] z-[999] flex flex-col shadow-xl transition-all duration-300 ease-in-out max-md:w-screen ${
-          sidebarOpen ? "right-0" : "right-[-380px] max-md:right-[-100vw]"
-        }`}
-      >
-        <div className="flex justify-between items-center py-6 px-7 border-b border-white/15">
+       className={`fixed top-0 w-[380px] h-screen bg-gradient-to-br from-indigo-400/[0.65] to-purple-500/[0.65] z-[999] flex flex-col shadow-xl transition-all duration-400 ease-[cubic-bezier(0.25,0.8,0.25,1)] max-md:w-screen ${
+        sidebarOpen ? "right-0" : "right-[-380px] max-md:right-[-100vw]"}`}>
+
+        <div className="flex justify-between items-center py-4 px-7 border-b border-white/15">
           <Link
             href="/"
+            className="inline-flex items-center text-white font-bold text-2xl"
             onClick={() => setSidebarOpen(false)}
-            className="text-white font-bold text-2xl"
           >
-            Yathraa
+            <span className="inline-flex items-center justify-center w-12 h-12">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="lucide lucide-handshake"
+              >
+                <path d="m11 17 2 2a1 1 0 1 0 3-3" />
+                <path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4" />
+                <path d="m21 3 1 11h-2" />
+                <path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3" />
+                <path d="M3 4h8" />
+              </svg>
+            </span>
+            <span className="tracking-wide">Yathraa</span>
           </Link>
+
           <button
-            className="text-white p-2.5 rounded-full transform hover:bg-white/15 hover:rotate-90"
+            className="text-white p-3 rounded-full hover:bg-white/15 hover:rotate-90"
             onClick={() => setSidebarOpen(false)}
           >
             <X size={24} />
@@ -212,7 +232,7 @@ const Nav: React.FC<NavProps> = ({
 
         {/* Sidebar Search */}
         <div
-          className="relative py-6 px-7 border-b border-white/15"
+          className="relative py-2 px-7 border-b border-white/15"
           ref={sidebarSearchRef}
         >
           <div className="flex items-center bg-white/15 border border-white/20 rounded-[25px] py-3 px-4 backdrop-blur-md">

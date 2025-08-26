@@ -306,7 +306,7 @@ const Hero: React.FC<HeroProps> = ({ searchTerm, setSearchTerm, suggestions = []
        className={`fixed top-0 w-[380px] h-screen bg-gradient-to-br from-indigo-400/[0.65] to-purple-500/[0.65] z-[999] flex flex-col shadow-xl transition-all duration-400 ease-[cubic-bezier(0.25,0.8,0.25,1)] max-md:w-screen ${
         sidebarOpen ? "right-0" : "right-[-380px] max-md:right-[-100vw]"}`}>
 
-        <div className="flex justify-between items-center py-6 px-7 border-b border-white/15">
+        <div className="flex justify-between items-center py-4 px-7 border-b border-white/15">
           <Link
             href="/"
             className="inline-flex items-center text-white font-bold text-2xl"
@@ -336,7 +336,7 @@ const Hero: React.FC<HeroProps> = ({ searchTerm, setSearchTerm, suggestions = []
           </Link>
 
           <button
-            className="text-white p-2.5 rounded-full hover:bg-white/15 hover:rotate-90"
+            className="text-white p-3 rounded-full hover:bg-white/15 hover:rotate-90"
             onClick={() => setSidebarOpen(false)}
           >
             <X size={24} />
@@ -344,7 +344,7 @@ const Hero: React.FC<HeroProps> = ({ searchTerm, setSearchTerm, suggestions = []
         </div>
 
         {/* Sidebar Search */}
-        <div className="relative py-6 px-7 border-b border-white/15" ref={sidebarSearchRef}>
+        <div className="relative py-2 px-7 border-b border-white/15" ref={sidebarSearchRef}>
           <div className="flex items-center bg-white/15 border border-white/20 rounded-[25px] py-3.5 px-4.5 backdrop-blur-md focus-within:bg-white/25 focus-within:border-white/40">
             <input
               type="search"
@@ -363,7 +363,6 @@ const Hero: React.FC<HeroProps> = ({ searchTerm, setSearchTerm, suggestions = []
               className="text-white p-1.5 ml-3 rounded-full hover:bg-white/20"
             >
               <Search size={18} />
-
             </button>
           </div>
 
@@ -418,13 +417,13 @@ const Hero: React.FC<HeroProps> = ({ searchTerm, setSearchTerm, suggestions = []
             </button>
             <button
               onClick={() => setAuthType("signup")}
-              className="bg-white text-indigo-500 py-3.5 px-6 rounded-[25px] font-bold hover:-translate-y-0.5 hover:shadow-lg"
+              className="bg-white text-indigo-500 py-3 px-6 rounded-[25px] font-bold hover:-translate-y-0.5 hover:shadow-lg"
             >
               Sign Up
             </button>
           </div>
           <div className="flex justify-center">
-            <button className="flex items-center gap-2.5 bg-white/15 border border-white/20 text-white py-3 px-5 rounded-[22px] hover:bg-white/25 hover:scale-105">
+            <button className="flex items-center gap-2.5 bg-white/15 border border-white/20 text-white py-2 px-5 rounded-[22px] hover:bg-white/25 hover:scale-105">
               <Globe size={20} />
               <span>English</span>
             </button>
