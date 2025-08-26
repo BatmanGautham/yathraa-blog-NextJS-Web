@@ -1,5 +1,7 @@
 # Yathraa Travel Blog (NextJS)
 
+**Live Demo:** [https://yathraa-blog-next-js-web-7sr6.vercel.app/]
+
 **Yathraa** is a simple travel blog web application built with **Next.js** and **Tailwind CSS**, using **MockAPI** for post data. It demonstrates Server-Side Rendering (SSR), search functionality, and a fully responsive design.
 
 ## Features
