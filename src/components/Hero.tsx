@@ -235,7 +235,7 @@ const Hero: React.FC<HeroProps> = ({ searchTerm, setSearchTerm, suggestions = []
           {/* Left: Hero text */}
           <div className="max-w-[720px] text-left">
             <Link
-              href="/Destination"
+              href="/destination"
               className="inline-block bg-gradient-to-br from-gray-500/[0.482] to-white/34 py-2.5 px-3.5 rounded-full mb-4 text-xl shadow-lg backdrop-blur-lg transition-transform ease-in-out duration-500 cursor-pointer hover:scale-105"
             >
               Destination
@@ -257,7 +257,7 @@ const Hero: React.FC<HeroProps> = ({ searchTerm, setSearchTerm, suggestions = []
               Exploring the Wonders of Hiking
             </h1>
             <p className="max-w-[540px] text-lg mb-4.5 opacity-95 drop-shadow-lg">
-              An iconic landmark, this post unveils the secrets that make these destination a traveler's paradise.
+              An iconic landmark, this post unveils the secrets that make these destination a traveler&apos;s paradise.
             </p>
 
             {/* Carousel Dots */}

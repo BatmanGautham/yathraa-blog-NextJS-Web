@@ -2,16 +2,30 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import authorImage from "../../../public/author1.jpg";
+
 import Footer from "@/components/Footer";
 import Nav from "@/components/Navbar";
 
-const destinations = [
+import { StaticImageData } from "next/image";
+import authorImage from "../../../public/author1.jpg";
+
+type Destination = {
+  slug: string;
+  title: string;
+  description: string;
+  date: string;
+  readTime: string;
+  author: string;
+  authorImage: StaticImageData; // explicitly typed
+  image: string;
+};
+
+const destinations: Destination[] = [
   {
     slug: "hiking-wonders",
     title: "Exploring the Wonders of Hiking",
     description:
-      "An iconic landmark, this post unveils the secrets that make this destination a traveler’s paradise.",
+      "An iconic landmark, this post unveils the secrets that make this destination a traveler's paradise.",
     date: "22 Aug 2025",
     readTime: "8 mins",
     author: "Bruce Wayne",
