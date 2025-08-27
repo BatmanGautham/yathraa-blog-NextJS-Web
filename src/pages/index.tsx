@@ -7,12 +7,14 @@ import Head from "next/head";
 
 interface Post {
   id: number;
+  category:number;
   date: string;
   readTime: string;
   title: string;
   description: string;
   author: string;
   image: string;
+  authorImage: string;
 }
 
 export default function Index({ posts }: { posts: Post[] }) {
@@ -20,7 +22,7 @@ export default function Index({ posts }: { posts: Post[] }) {
 
   const blogCards: BlogCard[] = posts.map((p) => ({
     id: String(p.id),
-    category: 0, // default number
+    category: p.category,
     date: p.date,
     dateISO: p.date,
     readTime: p.readTime,
@@ -29,7 +31,7 @@ export default function Index({ posts }: { posts: Post[] }) {
     author: p.author,
     image: p.image,
     content: p.description,
-    authorImage: "/author-placeholder.jpg", // default
+    authorImage: p.authorImage,
   }));
 
   return (

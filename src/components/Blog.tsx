@@ -2,6 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
+import { formatDate, formatReadTime } from "../../utils/format";
+
+
 export type BlogCard = {
   id: string;
   category: number; 
@@ -44,14 +47,16 @@ const Blog: React.FC<BlogProps> = ({ posts, searchTerm }) => {
   }, []);
 
   // Map category number to string
-  const mappedPosts = posts.map((p) => {
-    const num = Number(p.category);
-    const catIndex = num % categories.length;
-    return {
-      ...p,
-      category: categories[catIndex] ?? "Unknown",
-    };
-  });
+    const mappedPosts = posts.map((p) => {
+      const num = Number(p.category);
+      const actualCategories = categories.slice(1); 
+      const catIndex = num % actualCategories.length;
+      return {
+        ...p,
+        category: actualCategories[catIndex] ?? "Unknown",
+      };
+    });
+
 
   // Filter + search + sort
   const filtered = mappedPosts
@@ -78,6 +83,7 @@ const Blog: React.FC<BlogProps> = ({ posts, searchTerm }) => {
       if (postsRef.current) postsRef.current.scrollIntoView({ behavior: "smooth" });
     }
   };
+
 
   return (
     <div id="blog-section" className="max-w-[1200px] mx-auto px-5 py-16">
@@ -149,7 +155,7 @@ const Blog: React.FC<BlogProps> = ({ posts, searchTerm }) => {
 
       {/* Grid */}
       <div ref={postsRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {visible.map((post) => (
+        {visible.map((post) => ( 
           <Link key={post.id} href={`/posts/${post.id}`} className="cursor-pointer">
             <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
               <div className="relative transition-transform duration-500 ease-in-out hover:scale-105">
@@ -169,16 +175,25 @@ const Blog: React.FC<BlogProps> = ({ posts, searchTerm }) => {
               </div>
 
               <div className="p-5">
-                <p className="text-gray-500 text-xs">{post.date} • {post.readTime}</p>
+                <p className="text-gray-500 text-xs"> {formatDate(post.dateISO)} • {formatReadTime(Number(post.readTime))}</p>
                 <h3 className="text-lg font-bold mt-2">{post.title}</h3>
                 <p className="text-gray-700 mt-2 text-sm">{post.description}</p>
 
                 {/* Author */}
                 <div className="flex items-center gap-3 mt-4">
-                  <div
-                    className="w-9 h-9 flex-shrink-0 rounded-full bg-cover bg-center"
-                    style={{ backgroundImage: `url(${post.authorImage})` }}
-                  />
+                  <div className="w-9 h-9 flex-shrink-0 rounded-full overflow-hidden">
+                    <img
+                      src={
+                        post.authorImage && post.authorImage.startsWith("https")
+                          ? post.authorImage
+                          : "/default-avatar.png"
+                      }
+                      alt={post.author}
+                      // width={40}
+                      // height={40}
+                      className="rounded-full object-cover"
+                    />
+                  </div>
                   <strong className="text-sm sm:text-base font-medium">{post.author}</strong>
                 </div>
               </div>

@@ -5,6 +5,8 @@ import Nav from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 
+import { formatDate, formatReadTime } from "../../../utils/format";
+
 type BlogCard = {
   id: string;
   category: number;
@@ -50,11 +52,11 @@ const PostDetail: React.FC<Props> = ({ post, allPosts = [] }) => {
           alt={post.title}
           width={500}
           height={300}
-          className="rounded-xl mb-6 w-full object-contain"
+          className="rounded-xl mb-6 w-full object-cover max-h-[500px]"
         />
         <h1 className="text-4xl font-bold mb-3">{post.title}</h1>
         <p className="text-sm text-gray-500 mb-6">
-          {post.date} • {post.readTime} • {post.author}
+          {formatDate(post.dateISO)} • {formatReadTime(Number(post.readTime))} • {post.author}
         </p>
         <p className="text-base text-gray-600 mb-6 italic">
           {post.description}
